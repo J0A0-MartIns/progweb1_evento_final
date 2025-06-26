@@ -1,4 +1,3 @@
--- PostgreSQL ou outro compatível
 CREATE SEQUENCE EVENT_ID_GENERATE_bd START WITH 1 INCREMENT BY 1;
 
 CREATE TABLE event (
