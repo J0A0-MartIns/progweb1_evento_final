@@ -1,7 +1,7 @@
 
 # 📅 Sistema de Gerenciamento de Eventos
 
-Este projeto é um sistema completo de gerenciamento de eventos desenvolvido com **Angular** no frontend e **Spring Boot** no backend,
+Este projeto é um sistema completo de gerenciamento de eventos desenvolvido com **Angular** no frontend e **Spring Boot** no backend.
 Ele permite adicionar, listar, buscar por nome, alterar e excluir eventos com persistência em banco de dados.
 
 Trabalho realizado como atividade final da 2ª VA da disciplina de Programação Web 1 do 5° período de Sistemas de Informação pelos alunos:
