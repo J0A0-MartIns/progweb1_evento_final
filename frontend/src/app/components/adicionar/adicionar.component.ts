@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
-import {FormsModule, NgForm} from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-adicionar',
   standalone: true,
   templateUrl: './adicionar.component.html',
-  imports: [
-    FormsModule
-  ],
+  imports: [CommonModule, FormsModule],
   styleUrl: './adicionar.component.scss'
 })
 export class AdicionarComponent {
@@ -16,9 +15,10 @@ export class AdicionarComponent {
 
   salvarEvento(form: NgForm) {
     if (form.valid) {
-      this.eventoService.adicionarEvento(form.value);
-      form.reset();
-      alert('Evento adicionado com sucesso!');
+      this.eventoService.adicionarEvento(form.value).subscribe(() => {
+        alert('Evento adicionado com sucesso!');
+        form.reset();
+      });
     }
   }
 }

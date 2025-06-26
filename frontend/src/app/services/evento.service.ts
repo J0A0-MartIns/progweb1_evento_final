@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Evento {
+  id?: number;
   nome: string;
   descricao: string;
   dataInicio: string;
@@ -9,46 +12,33 @@ export interface Evento {
   local: string;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class EventoService {
-  private eventos: Evento[] = [];
+  private apiUrl = 'http://localhost:8080/event';
 
-  constructor() {
-    const eventosSalvos = localStorage.getItem('eventos');
-    if (eventosSalvos) {
-      this.eventos = JSON.parse(eventosSalvos);
-    }
+  constructor(private http: HttpClient) {}
+
+  adicionarEvento(evento: Evento): Observable<Evento> {
+    return this.http.post<Evento>(this.apiUrl, evento);
   }
 
-  private salvarNoLocalStorage() {
-    localStorage.setItem('eventos', JSON.stringify(this.eventos));
+  listarEventos(): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.apiUrl);
   }
 
-  adicionarEvento(evento: Evento) {
-    this.eventos.push(evento);
-    this.salvarNoLocalStorage();
+  buscarPorNome(nome: string): Observable<Evento[]> {
+    return this.http.get<Evento[]>(`${this.apiUrl}/search?nome=${nome}`);
   }
 
-  listarEventos(): Evento[] {
-    return this.eventos;
+  excluirEvento(id: number): Observable<Evento> {
+    return this.http.delete<Evento>(`${this.apiUrl}/${id}`);
   }
 
-  buscarPorNome(nome: string): Evento[] {
-    return this.eventos.filter(evento =>
-      evento.nome.toLowerCase().includes(nome.toLowerCase())
-    );
+  atualizarEvento(id: number, evento: Evento): Observable<Evento> {
+    return this.http.put<Evento>(`${this.apiUrl}/${id}`, evento);
   }
 
-  excluirEvento(index: number) {
-    this.eventos.splice(index, 1);
-    this.salvarNoLocalStorage();
-  }
-
-  atualizarEvento(index: number, eventoAtualizado: Evento) {
-    this.eventos[index] = eventoAtualizado;
-    this.salvarNoLocalStorage();
+  buscarPorId(id: number): Observable<Evento> {
+    return this.http.get<Evento>(`${this.apiUrl}/${id}`);
   }
 }
-

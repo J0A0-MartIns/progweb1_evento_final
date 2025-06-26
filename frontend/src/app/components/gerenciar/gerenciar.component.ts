@@ -15,20 +15,28 @@ export class GerenciarComponent {
   constructor(private eventoService: EventoService) {}
 
   ngOnInit() {
-    this.eventos = this.eventoService.listarEventos();
+    this.listarEventos();
   }
 
-  excluirEvento(index: number) {
-    this.eventoService.excluirEvento(index);
-    this.eventos = this.eventoService.listarEventos(); // Atualiza a lista após exclusão
+  listarEventos() {
+    this.eventoService.listarEventos().subscribe(eventos => {
+      this.eventos = eventos;
+    });
   }
 
-  alterarEvento(index: number) {
-    const novoNome = prompt('Novo nome do evento:', this.eventos[index].nome);
+  excluirEvento(id: number) {
+    this.eventoService.excluirEvento(id).subscribe(() => {
+      this.listarEventos();
+    });
+  }
+
+  alterarEvento(evento: Evento) {
+    const novoNome = prompt('Novo nome do evento:', evento.nome);
     if (novoNome !== null && novoNome.trim() !== '') {
-      this.eventos[index].nome = novoNome;
-      this.eventoService.atualizarEvento(index, this.eventos[index]);
+      const eventoAtualizado = { ...evento, nome: novoNome };
+      this.eventoService.atualizarEvento(evento.id!, eventoAtualizado).subscribe(() => {
+        this.listarEventos();
+      });
     }
   }
-
 }

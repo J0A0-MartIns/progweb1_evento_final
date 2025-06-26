@@ -8,8 +8,8 @@
       <p><strong>Data:</strong> {{ evento.dataInicio }} a {{ evento.dataFim }}</p>
       <p><strong>Gratuito:</strong> {{ evento.gratuito ? 'Sim' : 'Não' }}</p>
       <p><strong>Local:</strong> {{ evento.local }}</p>
-      <button (click)="alterarEvento(i)">Alterar</button>
-      <button (click)="excluirEvento(i)">Excluir</button>
+      <button (click)="alterarEvento(evento)">Alterar</button>
+      <button (click)="excluirEvento(evento.id!)">Excluir</button>
     </div>
   </section>
 </main>
