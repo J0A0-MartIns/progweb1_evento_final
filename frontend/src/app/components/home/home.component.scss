@@ -1,0 +1,13 @@
+.welcome-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px); /* altura da tela menos a altura do menu */
+  text-align: center;
+  padding: 20px;
+}
+
+.welcome-message h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+}

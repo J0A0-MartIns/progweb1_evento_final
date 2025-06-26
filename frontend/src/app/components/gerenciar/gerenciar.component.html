@@ -1,0 +1,15 @@
+<main>
+  <section class="event-list">
+    <h1>Meus Eventos</h1>
+
+    <div *ngFor="let evento of eventos; let i = index" class="event-card">
+      <h2>{{ evento.nome }}</h2>
+      <p><strong>Descrição:</strong> {{ evento.descricao }}</p>
+      <p><strong>Data:</strong> {{ evento.dataInicio }} a {{ evento.dataFim }}</p>
+      <p><strong>Gratuito:</strong> {{ evento.gratuito ? 'Sim' : 'Não' }}</p>
+      <p><strong>Local:</strong> {{ evento.local }}</p>
+      <button (click)="alterarEvento(i)">Alterar</button>
+      <button (click)="excluirEvento(i)">Excluir</button>
+    </div>
+  </section>
+</main>

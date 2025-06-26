@@ -1,0 +1,80 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.event-list {
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-list h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+
+.event-card {
+  background-color: #ecf0f1;
+  border-left: 5px solid #3498db;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.event-card p {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+
+.event-card button {
+  padding: 10px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+
+.event-card button:first-of-type {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.event-card button:first-of-type:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.event-card button:last-of-type {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.event-card button:last-of-type:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}

@@ -1,0 +1,15 @@
+<main>
+  <section class="event-list">
+    <h1>Eventos Cadastrados</h1>
+
+    <div *ngIf="eventos.length === 0">Nenhum evento cadastrado.</div>
+
+    <div *ngFor="let evento of eventos" class="event-card">
+      <h2>{{ evento.nome }}</h2>
+      <p><strong>Descrição:</strong> {{ evento.descricao }}</p>
+      <p><strong>Data:</strong> {{ evento.dataInicio }} a {{ evento.dataFim }}</p>
+      <p><strong>Gratuito:</strong> {{ evento.gratuito ? 'Sim' : 'Não' }}</p>
+      <p><strong>Local:</strong> {{ evento.local }}</p>
+    </div>
+  </section>
+</main>

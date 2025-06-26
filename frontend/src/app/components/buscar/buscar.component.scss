@@ -1,0 +1,89 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+
+.form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-container input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #2980b9;
+}
+
+
+.form-container div[ng-reflect-ng-if]:empty {
+  text-align: center;
+  color: #e74c3c;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+
+.event-card {
+  background-color: #ecf0f1;
+  border-left: 5px solid #3498db;
+  padding: 15px 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.event-card p {
+  margin: 6px 0;
+  line-height: 1.4;
+}

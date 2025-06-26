@@ -1,0 +1,17 @@
+<main>
+  <section class="form-container">
+    <h1>Buscar Evento</h1>
+    <input type="text" [(ngModel)]="termo" placeholder="Digite o nome do evento">
+    <button (click)="buscar()">Buscar</button>
+
+    <div *ngIf="resultados.length === 0 && termo">Nenhum evento encontrado.</div>
+
+    <div *ngFor="let evento of resultados" class="event-card">
+      <h2>{{ evento.nome }}</h2>
+      <p><strong>Descrição:</strong> {{ evento.descricao }}</p>
+      <p><strong>Data:</strong> {{ evento.dataInicio }} a {{ evento.dataFim }}</p>
+      <p><strong>Gratuito:</strong> {{ evento.gratuito ? 'Sim' : 'Não' }}</p>
+      <p><strong>Local:</strong> {{ evento.local }}</p>
+    </div>
+  </section>
+</main>
