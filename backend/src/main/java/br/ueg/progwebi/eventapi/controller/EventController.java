@@ -51,7 +51,7 @@ public class EventController {
         return newEvent;
     }
 
-    @PostMapping(path = "/{id}")
+    @PutMapping(path = "/{id}")
     public Event updateEvent(@PathVariable Long id, @RequestBody EventDTO eventDto) {
         Event eventUpdated = eventDtoToModel(eventDto);
         return eventService.update(id, eventUpdated);
@@ -66,6 +66,8 @@ public class EventController {
     public Event delete(@PathVariable Long id) {
         return this.eventService.delete(id);
     }
+
+
 
 
 
